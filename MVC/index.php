@@ -1,14 +1,12 @@
 <?php 
-    require_once('ModelUsuario.php');
     require_once('ControllerUsuario.php');
+
+    $persona = new ControladorUsuario();
+    $persona->insertarUsuario("Diego", "hambre.hambre@gmial.com");
 
 
     $controladorUsuario = new ControladorUsuario();
-    $controladorUsuario->listarUsuarios();
+    $arrayDeUsuarios = $controladorUsuario->listarUsuarios();
 
-
-    #$persona = new ModelUsuario();
-    #$persona->insertarUsuario("prubea2","email.com");
-
-
-    echo "\n finish";
+    #echo "<pre>". print_r($arrayDeUsuarios,true) . "</pre>";
+    echo json_encode($arrayDeUsuarios);

@@ -6,8 +6,15 @@
         public function listarUsuarios() {
             $usuarios = new ModelUsuario();
             $lista = $usuarios->listarUsuarios();
-            
-            header('Content-Type: application/json');
-            echo json_encode($usuarios);
+
+            return $lista;
+        }
+
+        public function InsertarUsuario($nombre, $email) {
+            $usuario = new ModelUsuario();
+            $usuario->nombre = $nombre;
+            $usuario->email = $email;
+
+            $usuario->InsertarUsuario($nombre, $email);
         }
     }
